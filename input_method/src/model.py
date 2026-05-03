@@ -1,14 +1,8 @@
 import torch
 from torch import nn
 import config
+#from torchinfo import summary
 
-torch.backends.mkldnn.enabled = False
-torch.backends.cudnn.enabled = False
-
-try:
-    from torchinfo import summary
-except ImportError:
-    summary = None
 
 
 class InputMethodModel(nn.Module):
@@ -72,8 +66,3 @@ if __name__ == '__main__':
         device=device,
     )
 
-    # 打印模型摘要
-    if summary is None:
-        print('未安装 torchinfo，跳过模型摘要展示。')
-    else:
-        summary(model, input_data=dummy_input)

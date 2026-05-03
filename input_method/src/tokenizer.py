@@ -82,9 +82,5 @@ class JiebaTokenizer:
         :return: 索引列表。
         """
         tokens = self.tokenize(sentence)
-
         # 将 token 转为索引，未知词用 unk 索引替代
-        return [
-            self.word2index.get(token, self.unk_token_index)
-            for token in tokens
-        ]
+        return [self.word2index.get(token, self.unk_token_index) for token in tokens]
